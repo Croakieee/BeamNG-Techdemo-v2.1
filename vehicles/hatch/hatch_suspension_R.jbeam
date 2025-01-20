@@ -1,0 +1,465 @@
+{
+"hatch_suspension_R": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Independent Rear Suspension",
+	}
+    "slotType" : "hatch_suspension_R",
+	"slots": [
+		["type", "default", "description"]
+		["hatch_hubcap_R","hatch_hubcap_R", "Ibishu Covet Rear Hubcaps"],
+		["hatch_brake_R","hatch_brake_R", "Ibishu Covet Rear Brakes"],
+		["hatch_wheel_R","hatch_wheel_R", "Ibishu Covet Rear Wheels"],
+		["hatch_coilover_R","hatch_coilover_R", "Ibishu Covet Rear Coilovers"],
+		["hatch_swaybar_R","hatch_swaybar_R", "Ibishu Covet Rear Sway Bar"],
+	],
+	"selfCollisionThickness":0.02,
+	"remoteCollisionThickness":0.06,
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //rear running gear
+		 ["hatch_lowerarm_R", ["hatch_lowermounts_a_R","hatch_lowerarm_a_R","hatch_lowermounts_b_R","hatch_lowerarm_b_R"]],
+		 
+		 ["hatch_upperarm_R", ["hatch_lowermounts_F","hatch_uppermounts_R","hatch_upperarm_R"]],
+		 
+		 ["hatch_hub_R", ["hatch_hub_R","hatch_lowerarm_a_R","hatch_lowerarm_b_R","hatch_upperarm_R"]],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],		 
+		 //--REAR INDEPENDENT SUSPENSION--
+		 {"nodeWeight":6.0},
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"selfCollision":false}
+		 {"collision":true},
+		 //rear wheels
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_hub_R"},
+		 ["rw2r", -0.648, 1.05, 0.288],
+		 ["rw2l", 0.648, 1.05, 0.288],
+		 
+		 {"nodeWeight":6.3},
+		 //rear hub
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"selfCollision":false}
+		 {"group":"hatch_lowerarm_a_R"},
+		 ["rh1r", -0.55, 1.25, 0.215],
+		 ["rh1l", 0.55, 1.25, 0.215],
+		 {"group":"hatch_lowerarm_b_R"},
+		 ["rh2r", -0.53, 0.90, 0.29],
+		 ["rh2l", 0.53, 0.90, 0.29],
+		 {"group":"hatch_upperarm_R"},
+		 ["rh3r", -0.58, 1.20, 0.42],
+		 ["rh3l", 0.58, 1.20, 0.42],
+		 
+		 {"group":""},
+		 
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  //--REAR RUNNING GEAR--
+		  //multilink suspension
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  
+		  {"beamDeform":85000,"beamStrength":220000},
+		  //rear arms
+		  //lower
+	      {"beamSpring":9501000,"beamDamp":10},
+		  ["rx1r","rh1r"],
+		  ["rx1l","rh1l"],
+		  ["rx2r","rh1r"],
+		  ["rx2l","rh1l"],
+		  
+		  //duplicate damper beams
+	      {"beamSpring":21000,"beamDamp":2400},
+		  ["rx1r","rh1r"],
+		  ["rx1l","rh1l"],
+		  ["rx2r","rh1r"],
+		  ["rx2l","rh1l"],
+		  
+		  //upper
+	      {"beamSpring":11001000,"beamDamp":10},
+		  {"beamPrecompression":0.98},
+		  ["rx3r","rh3r"],
+		  ["rx3l","rh3l"],
+		  //duplicate damper beams
+	      {"beamSpring":51000,"beamDamp":2400},
+		  ["rx3r","rh3r"],
+		  ["rx3l","rh3l"],
+
+		  {"beamPrecompression":1.0},
+		  
+	      {"beamSpring":9501000,"beamDamp":10},
+		  ["rx1r","rh2r"],
+		  ["rx1l","rh2l"],
+		  ["rx2r","rh2r"],
+		  ["rx2l","rh2l"],
+		  ["rx1r","rh2r"],
+		  ["rx1l","rh2l"],
+		  ["r4r","rh2r"],
+		  ["r4l","rh2l"],
+		  
+		  //duplicate damper beams
+	      {"beamSpring":21000,"beamDamp":2400},
+		  ["rx1r","rh2r"],
+		  ["rx1l","rh2l"],
+		  ["rx2r","rh2r"],
+		  ["rx2l","rh2l"],
+		  ["rx1r","rh2r"],
+		  ["rx1l","rh2l"],
+		  ["r4r","rh2r"],
+		  ["r4l","rh2l"],
+		  
+	      {"beamSpring":11001000,"beamDamp":10},
+		  ["rx2r","rh3r"],
+		  ["rx2l","rh3l"],
+		  
+		  //duplicate damper beams
+	      {"beamSpring":21000,"beamDamp":2400},
+		  ["rx2r","rh3r"],
+		  ["rx2l","rh3l"],
+		  
+		  {"beamDeform":250000,"beamStrength":420000},
+		  //rear hub
+	      {"beamSpring":10001000,"beamDamp":200},
+		  ["rh1r","rh2r"],
+		  ["rh1l","rh2l"],
+		  ["rh1r","rh3r"],
+		  ["rh1l","rh3l"],
+		  ["rh2r","rh3r"],
+		  ["rh2l","rh3l"],
+		  
+		  
+		  
+		  {"beamDeform":150000,"beamStrength":280000},
+		  ["rh3r","rw2r"],
+		  ["rh1r","rw2r"],
+		  ["rh2r","rw2r"],
+		  ["rh3l","rw2l"],
+		  ["rh1l","rw2l"],
+		  ["rh2l","rw2l"],
+		  {"optional":true},
+		  {"breakGroup":"wheel_RR"},
+		  ["rh3r","rw1r"],
+		  ["rh3r","rw1rr"],
+		  ["rh1r","rw1r"],
+		  ["rh1r","rw1rr"],
+		  ["rh2r","rw1r"],
+		  //toe in
+		  {"beamPrecompression":0.99},
+		  ["rh2r","rw1rr"],
+		  {"beamPrecompression":1},
+		  
+		  ["rw2r","rw1rr"],
+		  ["rw2r","rw1r"],
+		  {"breakGroup":"wheel_RL"},
+		  ["rh3l","rw1l"],
+		  ["rh3l","rw1ll"],
+		  ["rh1l","rw1l"],
+		  ["rh1l","rw1ll"],
+		  ["rh2l","rw1l"],
+		  //toe in
+		  {"beamPrecompression":0.99},
+		  ["rh2l","rw1ll"],
+		  {"beamPrecompression":1},
+		  
+		  ["rw2l","rw1ll"],
+		  ["rw2l","rw1l"],
+		  {"breakGroup":""},
+		  
+		  {"optional":false},
+		  //--REAR RUNNING GEAR--
+		  //multilink suspension
+		  //rear limiters
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.2, "beamShortBound":0.2}, 
+		  {"beamSpring":0,"beamDamp":0,"beamDeform":150000,"beamStrength":300000},
+		  {"beamLimitSpring":6001000,"beamLimitDamp":1200},
+		  ["rh3r","r3r"],
+		  ["rh3l","r3l"],
+		  
+		  ["rh3r","f4r"],
+		  ["rh3l","f4l"],
+		  
+		  ["rh1r","r3r"],
+		  ["rh1l","r3l"],
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.25, "beamShortBound":0.25}, 
+		  //rear end collide
+		  ["rh1r","q7r"],
+		  ["rh1l","q7l"],
+		  
+		  ["rh1r","r4r"],
+		  ["rh1l","r4l"],
+		  
+		  ["rh1r","r2r"],
+		  ["rh1l","r2l"],
+		  
+		  //inner collide
+		  ["rh1r","f9r"],
+		  ["rh1l","f9l"],
+		  
+		  ["rh3r","f9r"],
+		  ["rh3l","f9l"],
+		  
+		  ["rh1r","f8r"],
+		  ["rh1l","f8l"],
+		  
+		  ["rh3r","f8r"],
+		  ["rh3l","f8l"],
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.19, "beamShortBound":0.19}, 
+		  ["rh2r","q7r"],
+		  ["rh2l","q7l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  
+	],	
+	"pressureWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			{"propulsed":0}
+	],
+	"triangles": [
+			["id1:","id2:","id3:"],
+			
+	],
+}
+"hatch_brake_R": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rear Brakes",
+	}
+    "slotType" : "hatch_brake_R",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //brake discs
+		 ["hatch_brakedisc_RR", ["wheel_RR","wheelhub_RR"], ["hatch"]],
+		 ["hatch_brakedisc_RL", ["wheel_RL","wheelhub_RL"], ["hatch"]],
+	],
+	"pressureWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			//brakes
+			{"brakeTorque":450},
+			{"parkingTorque":900},
+	],
+}
+"hatch_coilover_R": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rear Coilovers",
+	}
+    "slotType" : "hatch_coilover_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_R", ["hatch_lowerarm_a_R","hatch_shocktop_R"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //rear shocks
+		  {"beamPrecompression":1.24, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.30}, 
+		  {"beamSpring":50000,"beamDeform":42000,"beamStrength":64000},
+		  {"beamDamp":2100},
+		  {"beamLimitSpring":601000,"beamLimitDamp":1600},
+		  ["rh1r","rs1r",{"beamDampRebound":2600}],
+		  ["rh1l","rs1l",{"beamDampRebound":2600}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_coilover_R_sport": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Sport Rear Coilovers",
+	}
+    "slotType" : "hatch_coilover_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_R", ["hatch_lowerarm_a_R","hatch_shocktop_R"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //rear shocks
+		  {"beamPrecompression":1.15, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.30}, 
+		  {"beamSpring":70000,"beamDeform":42000,"beamStrength":64000},
+		  {"beamDamp":2300},
+		  {"beamLimitSpring":601000,"beamLimitDamp":1600},
+		  ["rh1r","rs1r",{"beamDampRebound":3000}],
+		  ["rh1l","rs1l",{"beamDampRebound":3000}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_coilover_R_rally": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rally Rear Coilovers",
+	}
+    "slotType" : "hatch_coilover_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_R", ["hatch_lowerarm_a_R","hatch_shocktop_R"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //rear shocks
+		  {"beamPrecompression":1.38, "beamType":"|BOUNDED", "beamLongBound":0.4, "beamShortBound":0.25}, 
+		  {"beamSpring":28000,"beamDeform":116000,"beamStrength":154000},
+		  {"beamDamp":1600},
+		  {"beamLimitSpring":101000,"beamLimitDamp":5200},
+		  ["rh1r","rs1r",{"beamDampRebound":5200,"beamDampVelocitySplit":0.15,"beamDampFast":2600,"beamDampReboundFast":3200}],
+		  ["rh1l","rs1l",{"beamDampRebound":5200,"beamDampVelocitySplit":0.15,"beamDampFast":2600,"beamDampReboundFast":3200}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_coilover_R_race": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Race Rear Coilovers",
+	}
+    "slotType" : "hatch_coilover_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_R", ["hatch_lowerarm_a_R","hatch_shocktop_R"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //rear shocks
+		  {"beamPrecompression":1.13, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.30}, 
+		  {"beamSpring":68000,"beamDeform":42000,"beamStrength":64000},
+		  {"beamDamp":2400},
+		  {"beamLimitSpring":601000,"beamLimitDamp":1600},
+		  ["rh1r","rs1r",{"beamDampRebound":3100}],
+		  ["rh1l","rs1l",{"beamDampRebound":3100}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_swaybar_R": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rear Sway Bar",
+	}
+    "slotType" : "hatch_swaybar_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //anti-roll
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":""},
+		 {"nodeWeight":2.5},
+		 {"selfCollision":false},
+		 {"collision":true}
+		 ["arbr", 0.0, 1.1, 0.3],
+		 {"group":""},
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamLimitSpring":6001000,"beamLimitDamp":350},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--REAR ANTI-ROLL--
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	      {"beamSpring":6001000,"beamDamp":300},
+		  {"beamDeform":300000,"beamStrength":1000000},
+		  //rigid beams
+		  ["arbr","rh3r"],
+		  ["arbr","rh3l"],
+	      {"beamSpring":1651000,"beamDamp":10},
+		  //rear anti-roll
+		  ["arbr","f9r"],
+		  ["arbr","f9l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_swaybar_R_sport": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Sport Rear Sway Bar",
+	}
+    "slotType" : "hatch_swaybar_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //anti-roll
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":""},
+		 {"nodeWeight":2.5},
+		 {"selfCollision":false},
+		 {"collision":true}
+		 ["arbr", 0.0, 1.1, 0.3],
+		 {"group":""},
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamLimitSpring":6001000,"beamLimitDamp":350},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--REAR ANTI-ROLL--
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	      {"beamSpring":6001000,"beamDamp":300},
+		  {"beamDeform":300000,"beamStrength":1000000},
+		  //rigid beams
+		  ["arbr","rh3r"],
+		  ["arbr","rh3l"],
+	      {"beamSpring":2051000,"beamDamp":10},
+		  //rear anti-roll
+		  ["arbr","f9r"],
+		  ["arbr","f9l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_swaybar_R_race": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Race Rear Sway Bar",
+	}
+    "slotType" : "hatch_swaybar_R",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //anti-roll
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":""},
+		 {"nodeWeight":2.5},
+		 {"selfCollision":false},
+		 {"collision":true}
+		 ["arbr", 0.0, 1.1, 0.3],
+		 {"group":""},
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamLimitSpring":6001000,"beamLimitDamp":350},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--REAR ANTI-ROLL--
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	      {"beamSpring":6001000,"beamDamp":300},
+		  {"beamDeform":300000,"beamStrength":1000000},
+		  //rigid beams
+		  ["arbr","rh3r"],
+		  ["arbr","rh3l"],
+	      {"beamSpring":2651000,"beamDamp":10},
+		  //rear anti-roll
+		  ["arbr","f9r"],
+		  ["arbr","f9l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+}

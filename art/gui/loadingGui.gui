@@ -1,0 +1,51 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = singleton GuiBitmapCtrl(LoadingGui) {
+   bitmap = "core/art/grids/512_grey_base.png";
+   useVariable = "0";
+   tile = "0";
+   position = "0 0";
+   extent = "1024 768";
+   minExtent = "8 8";
+   horizSizing = "width";
+   vertSizing = "height";
+   profile = "GuiContentProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      enabled = "1";
+      qLineCount = "0";
+
+   new CefGui(loadingcef) {
+      docking = "None";
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "0 0";
+      extent = "1024 768";
+      minExtent = "8 2";
+      horizSizing = "width";
+      vertSizing = "height";
+      profile = "GuiCEFProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+      startURL = "local://local/html/loading.html";
+      webType = 1;
+      debugEnabled = "0";
+
+  };
+      
+
+};
+//--- OBJECT WRITE END ---

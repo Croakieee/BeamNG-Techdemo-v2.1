@@ -1,0 +1,121 @@
+{
+"hatch_mirror_L": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Left Mirror",
+	}
+    "slotType" : "hatch_mirror_L",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_mirror_L", ["hatch_mirror_L"]],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--MIRROR--
+		 {"collision":true},
+		 {"selfCollision":true},
+		 {"nodeWeight":0.8},
+		 {"frictionCoef":1},
+		 {"nodeMaterial":"|NM_PLASTIC"},
+		 {"group":"hatch_mirror_L"},
+		 ["mi1l",0.81, -0.53, 0.96],
+		 ["mi2l",0.93, -0.51, 0.95],
+		 ["mi3l",0.83, -0.53, 0.85],
+		 ["mi4l",0.95, -0.51, 0.86],
+		 ["mi5l",0.86, -0.60, 0.91],
+		 {"collision":true}
+		 {"selfCollision":false}
+		 {"group":""},
+		 ["mi6l", 0.80, -0.52, 0.855],
+		 ["mi7l", 0.78, -0.52, 0.94],
+		 {"group":""},
+		 
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--MIRRORS--
+		  {"beamSpring":951000,"beamDamp":100},
+		  {"beamDeform":7000,"beamStrength":125000},
+		  //mirror
+		  //l
+		  ["mi1l","mi2l"],
+		  ["mi1l","mi3l"],
+		  ["mi1l","mi4l"],
+		  ["mi1l","mi5l"],
+		  ["mi2l","mi3l"],
+		  ["mi2l","mi4l"],
+		  ["mi2l","mi5l"],
+		  ["mi3l","mi4l"],
+		  ["mi3l","mi5l"],
+		  ["mi4l","mi5l"],
+		  
+		  //attach
+		  {"beamDeform":7200,"beamStrength":26000},
+		  {"beamSpring":951000,"beamDamp":150},
+		  {"breakGroup":"hatch_mirror_L"},
+		  ["mi1l","mi7l"],
+		  ["mi2l","mi7l"],
+		  ["mi3l","mi7l"],
+		  ["mi4l","mi7l"],
+		  ["mi5l","mi7l"],
+		  ["mi6l","mi7l"],
+		  
+		  ["mi1l","mi6l"],
+		  ["mi2l","mi6l"],
+		  ["mi3l","mi6l"],
+		  ["mi4l","mi6l"],
+		  ["mi5l","mi6l"],
+		  {"beamSpring":91000,"beamDamp":150},
+		  {"breakGroupType":1},
+		  ["mi2l","d8l"],
+		  ["mi4l","d8l"],
+		  ["mi4l","d4l"],
+		  ["mi5l","d7l"],
+		  ["mi5l","d4l"],
+		  {"breakGroupType":0},
+		  {"beamDeform":96000,"beamStrength":96000},
+		  {"beamSpring":2151000,"beamDamp":150},
+		  ["mi6l","d10l"],
+		  ["mi7l","d10l"],
+		  ["mi6l","d4l"],
+		  ["mi7l","d4l"],
+		  ["mi6l","d7l"],
+		  ["mi7l","d7l"],
+		  
+		  ["mi6l","d8l"],
+		  ["mi7l","d8l"],
+		  ["mi6l","d5l"],
+		  ["mi7l","d5l"],
+		  
+		  {"breakGroup":""},
+		  //--MIRROR SUPPORT BEAMS--
+		  {"beamType":"|SUPPORT","beamLongBound":4},
+		  {"beamSpring":1351000,"beamDamp":0},
+		  {"beamLimitSpring":1351000,"beamLimitDamp":100},
+		  {"beamDeform":2500,"beamStrength":200000},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+	"triangles": [
+			["id1:","id2:","id3:"],
+			//left mirror		
+			{"group":"hatch_mirror_L"},
+			["mi1l","mi2l","mi3l"],
+			["mi3l","mi2l","mi4l"],
+			
+			["mi2l","mi1l","mi5l"],
+			["mi4l","mi2l","mi5l"],
+			["mi3l","mi4l","mi5l"],
+			["mi1l","mi3l","mi5l"],
+			{"group":""},
+			
+			
+	],
+}
+}

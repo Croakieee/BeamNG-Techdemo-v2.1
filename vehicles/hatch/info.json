@@ -1,0 +1,27 @@
+{
+	"Name":"Covet",
+	"Brand":"Ibishu",
+	"Transmission":"Automatic",
+	"Drivetrain":"FWD",
+	"Type":"Car",
+	"Derby Class":"Sub-Compact Car",
+	"default_pc":"stock_M",
+	"default_color":"Sea Blue",
+	"colors":{
+		"Pearl White": "1 1 1 1.2",
+		"Charcoal": "0.25 0.25 0.25 1.1",
+		"Silver": "0.65 0.65 0.65 1.1",
+		"Cream": "1 0.9 0.8 1.4",
+		"Light Brown": "0.6 0.45 0.35 1.4",
+		"Jet Black": "0 0 0 1.0",
+		"Fire Red": "1 0 0 1.0",
+		"Flame Orange": "1 0.3 0 1.2",
+		"Burgundy": "0.5 0 0 1.2",
+		"Forest Green": "0.1 0.4 0.2 1.2",
+		"Seafoam Green": "0.2 0.6 0.5 1.2",
+		"Sea Blue": "0.2 0.3 0.6 1.2",
+		"Deep Blue": "0.1 0.2 0.55 1.1",
+		"Navy Blue": "0.0 0.05 0.25 1.0",
+		"Chrome": "0.5 0.5 0.5 0.0"
+	}
+}

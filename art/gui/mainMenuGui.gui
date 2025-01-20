@@ -1,0 +1,59 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiBitmapCtrl(MainMenuGui) {
+   bitmap = "art/gui/bg.png";
+   wrap = "0";
+   cameraZRot = "0";
+   forceFOV = "0";
+   reflectPriority = "1";
+   renderStyle = "standard";
+   margin = "0 0 0 0";
+   padding = "0 0 0 0";
+   anchorTop = "1";
+   anchorBottom = "0";
+   anchorLeft = "1";
+   anchorRight = "0";
+   position = "0 0";
+   extent = "1024 768";
+   minExtent = "8 8";
+   horizSizing = "width";
+   vertSizing = "height";
+   profile = "GuiDefaultProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      enabled = "1";
+      isDecoy = "0";
+      tile = "0";
+      useVariable = "0";
+
+   new CefGui(mainmenucef) {
+      docking = "None";
+      margin = "0 0 0 0";
+      padding = "0 0 0 0";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "0 0";
+      extent = "1024 768";
+      minExtent = "8 2";
+      horizSizing = "width";
+      vertSizing = "height";
+      profile = "GuiCEFProfile";
+      visible = "1";
+      active = "1";
+      tooltipProfile = "GuiToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+      startURL = "local://local/html/mainmenu.html";
+      webType = "1";
+      debugEnabled = "0";
+   };
+};
+//--- OBJECT WRITE END ---

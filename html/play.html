@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.4.custom.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="css/jqmobilebng.css">
+    <link rel="stylesheet" href="css/beamng.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/jquery-fixes.css">
+    <link rel="stylesheet" href="css/spectrum.css">
+    <link rel="stylesheet" href="css/dialogs.css">
+    <link rel="stylesheet" href="css/propertygrid.css">
+
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="css/actionmenu.css">
+
+    <!--<script src="components/polymer/platform/platform.js"></script> -->
+    <script src="js/minimal.js"></script>
+
+    <script src="js/sprintf.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+
+    <script src="js/jquery.sparkline.min.js"></script>
+
+    <script src="js/jquery.flot.js"></script>
+    <script src="js/jquery.flot.resize.js"></script>
+    <script src="js/jquery.flot.crosshair.js"></script>
+
+    <script src="js/spectrum.js"></script>
+    <script src="js/underscore-min.js"></script>
+
+    <script src="js/Hookmanager.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dialogs.js"></script>
+    
+    <script src="js/propertygrid.js"></script>
+    <script src="js/options.js"></script>
+    <script src="js/partmgmt.js"></script>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard/freeroam.js"></script>
+
+    <script src="js/actionmenu.js"></script>
+    <!-- polymer elements -->
+    <!-- <link rel="import" href="components/beamng/bng-vehicle-chooser/bng-vehicle-chooser.html">-->
+</head>
+<body>
+
+<!--<bng-vehicle-chooser></bng-vehicle-chooser>-->
+
+<div data-role="page" id="main" class="ui-content-transparent">
+    <!-- default panel  -->
+    <div data-role="content" id="mainpage">
+        <div id='objdebug'></div>
+        <div id='speed'></div>
+    </div><!-- /content -->
+</div><!-- /page -->
+
+<div style="position:absolute;z-index:9999;background-color:rgba(255,255,255,0.7);bottom:0px;left:0px;font-family:verdana;font-size:12pt;padding:5px;margin:0;">
+<img src="/html/images/questionmark.png" style="width:16px;height:16px;" /> BeamNG.drive techdemo. Press F1 for the controls
+</div>
+ 
+<div class="physics-disabled"></div>
+</body>
+
+<script src="js/beamng.js"></script>
+<script src="js/beamng-play.js"></script>
+
+<script src="js/i18next-1.7.4.min.js"></script>
+<script src="js/i18n.js"></script>
+</html>

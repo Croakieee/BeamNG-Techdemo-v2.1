@@ -1,0 +1,145 @@
+{
+"hatch_rollcage": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Roll Cage",
+	}
+    "slotType" : "hatch_rollcage",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_rollcage", ["hatch_body"]],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 {"group":""},
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	      {"beamSpring":2001000,"beamDamp":60},
+		  {"beamDeform":800000,"beamStrength":"FLT_MAX"},
+		  ["f6rr","f6ll"],
+		  ["f6rr","f6l"],
+		  ["f6r","f6ll"],
+		  ["f6r","f6l"],
+		  
+		  //door braces
+		  ["f5rr","f3rr"],
+		  ["f5ll","f3ll"],
+		  
+		  ["q4r","f1rr"],
+		  ["q4l","f1ll"],
+		  
+		  //roof bracing
+		  ["rf1l","rf1r"],
+		  ["rf2l","rf2r"],
+		  ["rf4l","rf4r"],
+		  
+		  ["rf4r","rf2l"],
+		  ["rf4l","rf2r"],
+		  
+		  ["rf2r","rf1l"],
+		  ["rf2l","rf1r"],
+		  
+		  //diagonals from roof to rear wheel well
+		  ["rf2r","q5r"],
+		  ["rf2r","f9r"],
+		  
+		  ["rf2l","q5l"],
+		  ["rf2l","f9l"],
+		  
+		  //side to side brace
+		  ["q4l","f3rr"],
+		  ["q4r","f3ll"],
+		  
+		  ["q4l","f8r"],
+		  ["q4r","f8l"],
+		  
+		  //a-pillar reinforcement
+		  ["f6rr","rf1r"],
+		  ["p1r","rf2r"],
+		  ["p2r","rf2r"],
+		  
+		  ["f6ll","rf1l"],
+		  ["p1l","rf2l"],
+		  ["p2l","rf2l"],
+		  
+		  ["p1r","rf2"],
+		  ["p1l","rf2"],
+		  
+		  ["p1r","rf1"],
+		  ["p1l","rf1"],
+		  
+		  ["p2r","rf1"],
+		  ["p2l","rf1"],
+		  
+		  ["p1r","f6r"],
+		  ["p1l","f6l"],
+		  
+		  ["f6rr","rf1"],
+		  ["f6ll","rf1"],
+		  
+		  ["f6r","p1r"],
+		  ["f6l","p1l"],
+		  
+		  ["f6r","p2r"],
+		  ["f6l","p2l"],
+		  
+		  //b-pillar
+		  ["rf2l","q1l"],
+		  ["rf2r","q1r"],
+		  
+		  ["p3r","rf2"],
+		  ["p3l","rf2"],
+		  
+		  ["p3r","q4r"],
+		  ["p4r","q4r"],
+		  ["p3l","q4l"],
+		  ["p4l","q4l"],
+		  
+		  ["q1r","f3rr"],
+		  ["q1l","f3ll"],
+		  
+		  ["p4l","rf3l"],
+		  ["p4r","rf3r"],
+		  
+		  //c-pillar reinf
+		  ["rf4l","q3l"],
+		  ["rf4r","q3r"],
+		  
+		  ["p6l","rf4"],
+		  ["p6r","rf4"],
+		  
+		  ["p5l","rf3l"],
+		  ["p5r","rf3r"],
+		  
+		  ["q3l","q7l"],
+		  ["q3r","q7r"],
+		  
+		  ["q3l","q6l"],
+		  ["q3r","q6r"],
+		  
+		  ["p5l","q6l"],
+		  ["p5r","q6r"],
+		  
+		  ["p6l","q7l"],
+		  ["p6r","q7r"],
+		  
+		  //lower pillar reinforcement
+		  ["q1l","f3ll"],
+		  ["q1r","f3rr"],
+		  
+		  ["f6ll","f1ll"],
+		  ["f6rr","f1rr"],
+		  
+		  //roll cage
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+}

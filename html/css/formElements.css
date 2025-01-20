@@ -1,0 +1,173 @@
+select, input, label
+{
+    cursor: pointer;
+}
+
+a {
+    color: dimgray
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+select {
+    color: white;
+}
+
+option {
+    background-color: rgba(120, 120, 120, 1);
+}
+
+
+
+
+
+input[type=radio] {
+    -webkit-appearance: none;
+}
+
+
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    min-width: 100px;
+    height: 7px;
+    margin: 9px 0 9px 5px;
+    background-color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-top: -8px;
+    background-color: white;
+    border: solid 2px rgba(40, 40, 40, 1);
+    border-radius: 50px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(126, 126, 126, 1);
+    border: solid 2px rgba(40, 40, 40, 1);
+    margin: 0;
+    float: right;
+}
+
+input[type=checkbox]:checked {
+    background-color: white;
+}
+
+input[type=checkbox]:checked:after {
+    content: '';
+    position: absolute; /*TODO: fix this*/
+    right: 11px;
+    width: 14px;
+    height: 9px;
+    -webkit-transform: scale(0.707) rotate(135deg);
+    z-index: 1;
+    border-top: 5px solid rgba(126, 126, 126, 1);
+    border-right: 5px solid rgba(126, 126, 126, 1);
+}
+
+
+
+
+select {
+    -webkit-appearance: none;
+    background: url("../images/triangle.png") no-repeat right;
+    padding-right: 20px !important;
+    background-position: right 5px center;
+}
+
+
+select {
+    width: 100%;
+    border-width: 0px;
+    height: 20px;
+    /*background-color: rgba(245,245,245, 0.9);     /* whitesmoke */
+    padding: 2px 0px 0px 2px;
+    outline: none;
+    border: none;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+
+
+
+
+
+/*The following focus things are not working in chrome 34 because the focus event is partly broken*/
+/*input:focus {
+    outline: none;
+    border: rgb(253, 141, 0) solid;
+}
+
+select:focus {
+    border: rgb(253, 141, 0) solid;
+}
+
+input[type=range]:focus {
+    border: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    border-color: rgb(253, 141, 0) !important;
+}*/
+
+
+
+
+.sp-replacer {
+    border: none !important;
+    background-color: transparent !important;
+    width: 100%
+}
+
+.sp-preview {
+    width: 80% !important;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    -webkit-border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover  {
+    background: silver;
+}
+
+
+
+
+
+
+
+

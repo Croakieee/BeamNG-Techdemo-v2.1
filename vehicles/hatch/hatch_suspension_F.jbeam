@@ -1,0 +1,696 @@
+{
+"hatch_suspension_F": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Independent Front Suspension",
+	}
+    "slotType" : "hatch_suspension_F",
+	"slots": [
+		["type", "default", "description"]
+		["hatch_hubcap_F","hatch_hubcap_F", "Ibishu Covet Front Hubcaps"],
+		["hatch_brake_F","hatch_brake_F", "Ibishu Covet Front Brakes"],
+		["hatch_wheel_F","hatch_wheel_F", "Ibishu Covet Front Wheels"],
+		["hatch_coilover_F","hatch_coilover_F", "Ibishu Covet Front Coilovers"],
+		["hatch_swaybar_F","hatch_swaybar_F", "Ibishu Covet Front Sway Bar"],
+		["hatch_steering","hatch_steering", "Ibishu Covet Steering"],
+	],
+	"selfCollisionThickness":0.02,
+	"remoteCollisionThickness":0.06,
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //front running gear
+		 ["hatch_upperarm_F", ["hatch_uppermounts_a_F","hatch_uppermounts_b_F","hatch_upperarm_F"]],
+		 ["hatch_lowerarm_F", ["hatch_lowermounts_F","hatch_lowerarm_FR","hatch_lowerarm_FL"]],
+		 
+		 ["hatch_hub_FR", ["hatch_lowerarm_FR","hatch_upperarm_F","hatch_tierod_F"]],
+		 ["hatch_hub_FL", ["hatch_lowerarm_FL","hatch_upperarm_F","hatch_tierod_F"]],
+		 
+		 ["hatch_halfshaft", ["hatch_lowerarm_F","hatch_upperarm_F","hatch_engine","hatch_wheelhub_a_FR","hatch_wheelhub_a_FL"]],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--FRONT INDEPENDENT SUSPENSION--
+		 {"collision":true},
+		 {"selfCollision":false}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 //front hub
+		 //this is the steering axis
+		 {"nodeWeight":4.4},
+		 {"group":"hatch_lowerarm_FR"},
+		 ["fh1r", -0.675, -1.28, 0.183],
+		 {"group":"hatch_lowerarm_FL"},
+		 ["fh1l", 0.675, -1.28, 0.183],
+		 {"group":"hatch_upperarm_F"},
+		 ["fh2r", -0.63, -1.23, 0.63],
+		 ["fh2l", 0.63, -1.23, 0.63],
+		 {"group":"hatch_tierod_F"},
+		 {"nodeWeight":5.0},
+		 {"selfCollision":false}
+		 //tie rod goes here
+		 ["fh3r", -0.619, -1.10, 0.25],
+		 ["fh3l", 0.619, -1.10, 0.25],
+		 {"nodeWeight":3.1},
+		 {"selfCollision":false}
+		 {"group":"hatch_shockbottom_F"},
+		 //bottom of shock
+		 ["fh4r", -0.525, -1.25, 0.17],
+		 ["fh4l", 0.525, -1.25, 0.17],
+		 
+		 
+		 {"group":""},
+		 
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  //--FRONT RUNNING GEAR--
+		  //double wishbone suspension
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  
+		  {"beamDeform":180000,"beamStrength":500000},
+		  
+	      {"beamSpring":7501000,"beamDamp":300},
+		  //front hub
+		  ["fh1r","fh2r"],
+		  ["fh1l","fh2l"],
+		  ["fh1r","fh3r"],
+		  ["fh1l","fh3l"],
+		  ["fh1r","fh4r"],
+		  ["fh1l","fh4l"],
+		  ["fh2r","fh3r"],
+		  ["fh2l","fh3l"],
+		  
+		  
+		  {"optional":true},
+		  {"beamDeform":150000,"beamStrength":300000},
+		  //attach to wheel
+		  {"breakGroup":"wheel_FR"},
+		  ["fh1r","fw1r"],
+		  ["fh2r","fw1r"],
+		  ["fh3r","fw1r"],
+		  
+		  ["fh1r","fw1rr"],
+		  ["fh2r","fw1rr"],
+		  ["fh3r","fw1rr"],
+		  
+		  //["fh1r","fw2r"],
+		  //["fh2r","fw2r"],
+		  //["fh3r","fw2r"],
+		  {"breakGroup":"wheel_FL"},
+		  ["fh1l","fw1l"],
+		  ["fh2l","fw1l"],
+		  ["fh3l","fw1l"],
+		  
+		  ["fh1l","fw1ll"],
+		  ["fh2l","fw1ll"],
+		  ["fh3l","fw1ll"],
+		  
+		  //["fh1l","fw2l"],
+		  //["fh2l","fw2l"],
+		  //["fh3l","fw2l"],
+		  {"breakGroup":""},
+		  {"optional":false},
+		  //lower arm
+	      {"beamSpring":11001000,"beamDamp":10},
+		  {"beamDeform":55000,"beamStrength":240000},
+		  ["fx2r","fh1r"],
+		  ["fx2l","fh1l"],
+		  ["fx2r","fh4r"],
+		  ["fx2l","fh4l"],
+		  
+		  //duplicate damper beams
+	      {"beamSpring":21000,"beamDamp":2400},
+		  {"beamDeform":120000,"beamStrength":240000},
+		  ["fx2r","fh1r"],
+		  ["fx2l","fh1l"],
+		  ["fx2r","fh4r"],
+		  ["fx2l","fh4l"],
+		  
+	      {"beamSpring":11001000,"beamDamp":10},
+		  ["fx1r","fh1r"],
+		  ["fx1l","fh1l"],
+		  ["fx1r","fh4r"],
+		  ["fx1l","fh4l"],
+		  
+		  //duplicate damper beams
+	      {"beamSpring":21000,"beamDamp":2400},
+		  ["fx1r","fh1r"],
+		  ["fx1l","fh1l"],
+		  ["fx1r","fh4r"],
+		  ["fx1l","fh4l"],
+		  {"beamDeform":65000,"beamStrength":170000},
+	      {"beamSpring":7501000,"beamDamp":10},
+		  //camber
+		  {"beamPrecompression":0.98},
+		  //upper arm
+		  ["fh2r","fx3r"],
+		  ["fh2l","fx3l"],
+		  ["fh2r","fx4r"],
+		  ["fh2l","fx4l"],
+		  
+		  //duplicate damper beams
+	      {"beamSpring":21000,"beamDamp":2100},
+		  ["fh2r","fx3r"],
+		  ["fh2l","fx3l"],
+		  ["fh2r","fx4r"],
+		  ["fh2l","fx4l"],
+		  
+		  {"beamPrecompression":1.0},
+		  //halfshafts
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.05, "beamShortBound":0.05},
+		  {"beamSpring":0,"beamDamp":0,"beamDeform":12000,"beamStrength":19000},
+		  {"beamLimitSpring":7501000,"beamLimitDamp":300},
+		  {"breakGroupType":1},
+		  {"breakGroup":"wheel_FR"},
+		  ["fw1r","e1l", {"name":"axle_FR"}],
+		  {"breakGroup":"wheel_FL"},
+		  ["fw1l","e2l", {"name":"axle_FL"}],
+		  {"breakGroup":""},
+		  {"breakGroupType":0},
+		  //front limiters
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.3, "beamShortBound":0.49},
+		  {"beamSpring":0,"beamDamp":0,"beamDeform":100000,"beamStrength":800000},
+		  {"beamLimitSpring":6001000,"beamLimitDamp":1200},
+		  //firewall
+		  {"optional":true},
+		  {"breakGroup":"wheel_FR"},
+		  ["fw1rr","f1rr"],
+		  ["fw1r","f1rr"],
+		  ["fw1r","f5r"],
+		  {"breakGroup":"wheel_FL"},
+		  ["fw1ll","f1ll"],
+		  ["fw1l","f1ll"],
+		  ["fw1l","f5l"],
+		  
+		  
+		  {"breakGroup":""},
+		  {"optional":false},
+		  
+		  
+		  ["fh1r","f5r"],
+		  ["fh1l","f5l"],
+		  ["fh1r","f6r"],
+		  ["fh1l","f6l"],
+		  ["fh1r","f6rr"],
+		  ["fh1l","f6ll"],
+		  
+		  
+		  
+		  ["fh2r","f5r"],
+		  ["fh2l","f5l"],
+		  
+		  ["fh3r","f5r"],
+		  ["fh3l","f5l"],
+		  
+		  ["fh3r","f1r"],
+		  ["fh3l","f1l"],
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.3, "beamShortBound":0.27},
+		  //front end
+		  {"optional":true},
+		  {"breakGroup":"wheel_FR"},
+		  ["fw1rr","s5r"],
+		  ["fw1r","s5r"],
+		  {"breakGroup":"wheel_FL"},
+		  ["fw1ll","s5l"],
+		  ["fw1l","s5l"],
+		  
+		  {"breakGroup":""},
+		  
+		  {"optional":false},
+		  
+		  ["fh1r","s5r"],
+		  ["fh1l","s5l"],
+		  
+		  ["fh4r","s7r"],
+		  ["fh4l","s7l"],
+		  
+		  ["fh4r","s5r"],
+		  ["fh4l","s5l"],
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.14, "beamShortBound":0.16},
+		  //steering anti invert
+		  ["fh3r","s1l"]
+		  ["fh3l","s1r"]
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.15, "beamShortBound":0.17},
+		  
+		  ["fh3r","fx1l"]
+		  ["fh3l","fx1r"]
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.36, "beamShortBound":0.36},
+		  ["fh3r","fx1r"],
+		  ["fh3l","fx1l"],
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.36, "beamShortBound":0.36},
+		  //["fw2r","f1r"],
+		  //["fw2l","f1l"],
+		  
+		  /*
+		  //anti-invert
+		  
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.11, "beamShortBound":0.11},
+		  ["fh2r","s2r"],
+		  ["fh2l","s2l"],
+		  
+		  ["fh2r","s1r"],
+		  ["fh2l","s1l"],
+		  
+		  */
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.07, "beamShortBound":0.07},
+		  ["fh2r","fx3l"],
+		  ["fh2l","fx3r"],
+		  ["fh2r","fx4l"],
+		  ["fh2l","fx4r"],
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.16, "beamShortBound":0.16},
+		  ["fh2r","f1r"],
+		  ["fh2l","f1l"],
+		  ["fh2r","f1rr"],
+		  ["fh2l","f1ll"],
+		  /*
+		  {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.025, "beamShortBound":0.5},
+		  ["fh2r","f1r"],
+		  ["fh2l","f1l"],
+		  */
+		  
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  
+	],
+	"triangles": [
+			["id1:","id2:","id3:"],
+			
+	],
+}
+"hatch_brake_F": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Front Brakes",
+	}
+    "slotType" : "hatch_brake_F",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //brake discs
+		 ["hatch_brakedisc_FR", ["wheel_FR","wheelhub_a_FR","wheelhub_b_FR"], ["hatch"]],
+		 ["hatch_brakedisc_FL", ["wheel_FL","wheelhub_a_FL","wheelhub_b_FL"], ["hatch"]],
+	],
+	"pressureWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			//brakes
+			{"brakeTorque":1050},
+			{"parkingTorque":0},
+	],
+}
+"hatch_coilover_F": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Front Coilovers",
+	}
+    "slotType" : "hatch_coilover_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_F", ["hatch_shockbottom_F","hatch_shocktop_F"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //front shocks		 
+		  {"beamPrecompression":1.16, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.18}, 
+		  {"beamSpring":65000,"beamDeform":52000,"beamStrength":84000},
+		  {"beamDamp":2900},
+		  {"beamLimitSpring":601000,"beamLimitDamp":1600},
+		  ["fh1r","fs1r",{"beamDampRebound":3500}],
+		  ["fh1l","fs1l",{"beamDampRebound":3500}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_coilover_F_sport": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Sport Front Coilovers",
+	}
+    "slotType" : "hatch_coilover_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_F", ["hatch_shockbottom_F","hatch_shocktop_F"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //front shocks		 
+		  {"beamPrecompression":1.10, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.18}, 
+		  {"beamSpring":80000,"beamDeform":52000,"beamStrength":84000},
+		  {"beamDamp":3200},
+		  {"beamLimitSpring":601000,"beamLimitDamp":1600},
+		  ["fh1r","fs1r",{"beamDampRebound":4000}],
+		  ["fh1l","fs1l",{"beamDampRebound":4000}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_coilover_F_rally": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rally Front Coilovers",
+	}
+    "slotType" : "hatch_coilover_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_F", ["hatch_shockbottom_F","hatch_shocktop_F"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //front shocks		 
+		  {"beamPrecompression":1.13, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.3}, 
+		  {"beamSpring":92000,"beamDeform":192000,"beamStrength":244000},
+		  {"beamDamp":2000},
+		  {"beamLimitSpring":161000,"beamLimitDamp":5400},
+		  ["fh1r","fs1r",{"beamDampRebound":5400,"beamDampVelocitySplit":0.15,"beamDampFast":2000,"beamDampReboundFast":2800}],
+		  ["fh1l","fs1l",{"beamDampRebound":5400,"beamDampVelocitySplit":0.15,"beamDampFast":2000,"beamDampReboundFast":2800}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_coilover_F_race": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Race Front Coilovers",
+	}
+    "slotType" : "hatch_coilover_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_coilover_F", ["hatch_shockbottom_F","hatch_shocktop_F"]],
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //front shocks		 
+		  {"beamPrecompression":1.04, "beamType":"|BOUNDED", "beamLongBound":0.0, "beamShortBound":0.18}, 
+		  {"beamSpring":140000,"beamDeform":52000,"beamStrength":84000},
+		  {"beamDamp":3400},
+		  {"beamLimitSpring":601000,"beamLimitDamp":1600},
+		  ["fh1r","fs1r",{"beamDampRebound":4300}],
+		  ["fh1l","fs1l",{"beamDampRebound":4300}],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_swaybar_F": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Front Sway Bar",
+	}
+    "slotType" : "hatch_swaybar_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //anti-roll
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":""},
+		 {"nodeWeight":2.5},
+		 {"selfCollision":false},
+		 {"collision":true}
+		 ["arbf", 0.0, -1.1, 0.5],
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamLimitSpring":6001000,"beamLimitDamp":350},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--FRONT ANTI-ROLL--
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	      {"beamSpring":6001000,"beamDamp":300},
+		  {"beamDeform":300000,"beamStrength":1000000},
+		  //rigid beams
+		  ["arbf","fh1r"],
+		  ["arbf","fh1l"],
+	      {"beamSpring":1801000,"beamDamp":10},
+		  //front anti-roll
+		  ["arbf","f5r"],
+		  ["arbf","f5l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_swaybar_F_sport": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Sport Front Sway Bar",
+	}
+    "slotType" : "hatch_swaybar_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //anti-roll
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":""},
+		 {"nodeWeight":2.5},
+		 {"selfCollision":false},
+		 {"collision":true}
+		 ["arbf", 0.0, -1.1, 0.5],
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamLimitSpring":6001000,"beamLimitDamp":350},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--FRONT ANTI-ROLL--
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	      {"beamSpring":6001000,"beamDamp":300},
+		  {"beamDeform":300000,"beamStrength":1000000},
+		  //rigid beams
+		  ["arbf","fh1r"],
+		  ["arbf","fh1l"],
+	      {"beamSpring":2251000,"beamDamp":10},
+		  //front anti-roll
+		  ["arbf","f5r"],
+		  ["arbf","f5l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_swaybar_F_race": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Race Front Sway Bar",
+	}
+    "slotType" : "hatch_swaybar_F",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //anti-roll
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":""},
+		 {"nodeWeight":2.5},
+		 {"selfCollision":false},
+		 {"collision":true}
+		 ["arbf", 0.0, -1.1, 0.5],
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamLimitSpring":6001000,"beamLimitDamp":350},
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  //--FRONT ANTI-ROLL--
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	      {"beamSpring":6001000,"beamDamp":300},
+		  {"beamDeform":300000,"beamStrength":1000000},
+		  //rigid beams
+		  ["arbf","fh1r"],
+		  ["arbf","fh1l"],
+	      {"beamSpring":2801000,"beamDamp":10},
+		  //front anti-roll
+		  ["arbf","f5r"],
+		  ["arbf","f5l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_steering": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Steering",
+	}
+    "slotType" : "hatch_steering",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_tierod", ["hatch_tierod_F","wheelhub_a_FR","wheelhub_a_FL","wheelhub_b_FR","wheelhub_b_FL","hatch_hub_F"]],
+	],
+	"rails": {
+		"steeringrack":{
+			"links:":["fh6r", "fh6l"], "broken:":[], "looped":false, "capped":true
+		}
+	},
+	"slidenodes": [
+		["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+		["s1r", "steeringrack", true, true, 0.0, 4950000, 50000, 50000],
+		["s1l", "steeringrack", true, true, 0.0, 4950000, 50000, 50000],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--steering rod--
+		 {"selfCollision":false},
+		 {"collision":false}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_tierod_F"},
+		 {"nodeWeight":4.4},
+		 ["fh6r", -0.32, -1.14, 0.28],
+		 ["fh6l", 0.32, -1.14, 0.28],
+		 {"group":""},
+	],
+	"beams": [
+			["id1:","id2:"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+			{"beamSpring":8001000,"beamDamp":10,"beamDeform":80000,"beamStrength":120000},
+			["fh6r","fh6l"],
+			{"beamSpring":21000,"beamDamp":2100},
+			["fh6r","fh6l"],
+			//toe (below 1 = toe out, above 1 = toe in)
+			{"beamPrecompression":1.008},
+			{"beamSpring":8001000,"beamDamp":10},
+		    ["fh3r","fh6r"],
+		    ["fh3l","fh6l"],
+			
+			{"beamSpring":21000,"beamDamp":2100},
+		    ["fh3r","fh6r"],
+		    ["fh3l","fh6l"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	]
+	"hydros": [
+			["id1:","id2:"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+			{"beamSpring":2501000,"beamDamp":1000,"beamDeform":95000,"beamStrength":150000},
+		    ["fh6r","s1l",{"factor":-0.22,"steeringWheelLock":465}],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	]
+}
+"hatch_steering_race": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Race Steering",
+	}
+    "slotType" : "hatch_steering",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_tierod", ["hatch_tierod_F","wheelhub_a_FR","wheelhub_a_FL","wheelhub_b_FR","wheelhub_b_FL","hatch_hub_F"]],
+	],
+	"rails": {
+		"steeringrack":{
+			"links:":["fh6r", "fh6l"], "broken:":[], "looped":false, "capped":true
+		}
+	},
+	"slidenodes": [
+		["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+		["s1r", "steeringrack", true, true, 0.0, 4950000, 50000, 50000],
+		["s1l", "steeringrack", true, true, 0.0, 4950000, 50000, 50000],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--steering rod--
+		 {"selfCollision":false},
+		 {"collision":false}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_tierod_F"},
+		 {"nodeWeight":4.4},
+		 ["fh6r", -0.32, -1.14, 0.28],
+		 ["fh6l", 0.32, -1.14, 0.28],
+		 {"group":""},
+	],
+	"beams": [
+			["id1:","id2:"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+			{"beamSpring":8001000,"beamDamp":10,"beamDeform":95000,"beamStrength":140000},
+			["fh6r","fh6l"],
+			{"beamSpring":21000,"beamDamp":2100},
+			["fh6r","fh6l"],
+			//toe (below 1 = toe out, above 1 = toe in)
+			{"beamPrecompression":1.008},
+			{"beamSpring":8001000,"beamDamp":10},
+		    ["fh3r","fh6r"],
+		    ["fh3l","fh6l"],
+			
+			{"beamSpring":21000,"beamDamp":2100},
+		    ["fh3r","fh6r"],
+		    ["fh3l","fh6l"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	]
+	"hydros": [
+			["id1:","id2:"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+			{"beamSpring":2501000,"beamDamp":1000,"beamDeform":110000,"beamStrength":170000},
+		    ["fh6r","s1l",{"factor":-0.22,"steeringWheelLock":360}],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	]
+}
+"hatch_steering_rally": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rally Steering",
+	}
+    "slotType" : "hatch_steering",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_tierod", ["hatch_tierod_F","wheelhub_a_FR","wheelhub_a_FL","wheelhub_b_FR","wheelhub_b_FL","hatch_hub_F"]],
+	],
+	"rails": {
+		"steeringrack":{
+			"links:":["fh6r", "fh6l"], "broken:":[], "looped":false, "capped":true
+		}
+	},
+	"slidenodes": [
+		["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+		["s1r", "steeringrack", true, true, 0.0, 4950000, 50000, 50000],
+		["s1l", "steeringrack", true, true, 0.0, 4950000, 50000, 50000],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--steering rod--
+		 {"selfCollision":false},
+		 {"collision":false}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_tierod_F"},
+		 {"nodeWeight":4.4},
+		 ["fh6r", -0.32, -1.14, 0.28],
+		 ["fh6l", 0.32, -1.14, 0.28],
+		 {"group":""},
+	],
+	"beams": [
+			["id1:","id2:"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+			{"beamSpring":8001000,"beamDamp":10,"beamDeform":95000,"beamStrength":140000},
+			["fh6r","fh6l"],
+			{"beamSpring":21000,"beamDamp":2100},
+			["fh6r","fh6l"],
+			//toe (below 1 = toe out, above 1 = toe in)
+			{"beamPrecompression":1.008},
+			{"beamSpring":8001000,"beamDamp":10},
+		    ["fh3r","fh6r"],
+		    ["fh3l","fh6l"],
+			
+			{"beamSpring":21000,"beamDamp":2100},
+		    ["fh3r","fh6r"],
+		    ["fh3l","fh6l"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	]
+	"hydros": [
+			["id1:","id2:"],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+			{"beamSpring":2501000,"beamDamp":1000,"beamDeform":110000,"beamStrength":170000},
+		    ["fh6r","s1l",{"factor":-0.22,"steeringWheelLock":270}],
+			{"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	]
+}
+}

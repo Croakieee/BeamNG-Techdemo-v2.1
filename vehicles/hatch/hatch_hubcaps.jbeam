@@ -1,0 +1,111 @@
+{
+"hatch_hubcap_F": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Front Hubcaps",
+	}
+    "slotType" : "hatch_hubcap_F",
+	"selfCollisionThickness":0.02,
+	"remoteCollisionThickness":0.06,
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //hubcaps
+		 ["ibishu_hubcap_02a_14", ["hubcap_FR"], [], {"pos":{"x":-0.808, "y":-1.25, "z":0.288}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+		 ["ibishu_hubcap_02a_14", ["hubcap_FL"], [], {"pos":{"x": 0.808, "y":-1.25, "z":0.288}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 {"collision":true},
+		 {"selfCollision":false}
+		 {"nodeWeight":0.75},
+		 {"nodeMaterial":"|NM_PLASTIC"},
+		 {"frictionCoef":1},
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}, 
+	],
+	"pressureWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"], 
+			//hubcap options
+			{"enableHubcaps":true},
+			{"hubcapSelfCollision":true}
+			{"hubcapCollision":true}
+			{"hubcapOffset":0.0},
+			{"hubcapWidth":0.04},
+			{"hubcapBeamSpring":401000, "hubcapBeamDamp":20}
+			{"hubcapBeamDeform":116000, "hubcapBeamStrength":130000},
+			{"hubcapAttachBeamSpring":201000, "hubcapAttachBeamDamp":50},
+			{"hubcapAttachBeamDeform":3400, "hubcapAttachBeamStrength":3600},
+			{"hubcapNodeWeight":0.18},
+			{"hubcapCenterNodeWeight":0.22},
+			{"hubcapNodeMaterial":"|NM_PLASTIC"},
+			{"hubcapFrictionCoef":1.0},
+	],
+	"triangles": [
+			["id1:","id2:","id3:"],
+	],
+}"hatch_hubcap_R": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Rear Hubcaps",
+	}
+    "slotType" : "hatch_hubcap_R",
+	"selfCollisionThickness":0.02,
+	"remoteCollisionThickness":0.06,
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //hubcaps
+		 ["ibishu_hubcap_02a_14", ["hubcap_RR"], [], {"pos":{"x":-0.808, "y":1.25, "z":0.288}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+		 ["ibishu_hubcap_02a_14", ["hubcap_RL"], [], {"pos":{"x": 0.808, "y":1.25, "z":0.288}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 {"collision":true},
+		 {"selfCollision":false}
+		 {"nodeWeight":0.75},
+		 {"nodeMaterial":"|NM_PLASTIC"},
+		 {"frictionCoef":1},
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}, 
+	],
+		"pressureWheels": [
+            ["radius","hubRadius","wheelOffset","hubWidth","tireWidth","numRays","node1:","node2:","nodeS","nodeArm:","brakeTorque","parkingTorque","propulsed","wheelDir"], 
+			//hubcap options
+			{"enableHubcaps":true},
+			{"hubcapSelfCollision":true}
+			{"hubcapCollision":true}
+			{"hubcapOffset":0.0},
+			{"hubcapWidth":0.04},
+			{"hubcapBeamSpring":401000, "hubcapBeamDamp":20}
+			{"hubcapBeamDeform":116000, "hubcapBeamStrength":130000},
+			{"hubcapAttachBeamSpring":201000, "hubcapAttachBeamDamp":50},
+			{"hubcapAttachBeamDeform":3400, "hubcapAttachBeamStrength":3600},
+			{"hubcapNodeWeight":0.18},
+			{"hubcapCenterNodeWeight":0.22},
+			{"hubcapNodeMaterial":"|NM_PLASTIC"},
+			{"hubcapFrictionCoef":1.0},
+	],
+	"triangles": [
+			["id1:","id2:","id3:"],
+	],
+}
+}

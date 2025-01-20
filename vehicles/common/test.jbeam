@@ -1,0 +1,38 @@
+{
+"vehicle": {
+	"information":{
+		"authors":"gabester",
+		"name":"beam",
+	}
+		"camera":{
+		"camNodeRef":"a",
+		"camNodeBack":"a",
+		"camNodeLeft":"a",
+		"camNodeUp":"a",
+		"camDist":6.5,
+		"camMinDist":4,
+		"camOffset":{"x":0, "y":0.3, "z":0.75},
+		"camFOVExternal":60,
+		},
+		
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 {"selfCollision":true}
+		 {"collision":true}
+		 {"nodeWeight":50},
+		 ["a", -1, 0, 0],
+		 ["b", 1, 0, 0],
+		 ],
+		 
+	"beams": [
+		  ["id1:", "id2:"],
+		  //--BEAM--
+		  {"beamSpring":80000,"beamDamp":2000,"beamDeform":200000,"beamStrength":300000},
+		  {"beamLimitSpring":3001000,"beamLimitDamp":2000},
+		  {"beamPrecompression":1.23, "beamType":"|BOUNDED", "beamLongBound":0.4, "beamShortBound":0.25},
+		  ["a","b"],
+		],
+		
+}
+}
+		  

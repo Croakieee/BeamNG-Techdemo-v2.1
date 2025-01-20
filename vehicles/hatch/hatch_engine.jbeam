@@ -1,0 +1,573 @@
+{
+"hatch_engine": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet 1.5L I4 Engine",
+	}
+    "slotType" : "hatch_engine",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"slots": [
+		["type", "default", "description"]
+		["hatch_exhaust","hatch_exhaust", "Ibishu Covet Exhaust"],
+		["hatch_transmission","hatch_transmission_4A", "Ibishu Covet Transmission"],
+		["hatch_enginetuning","", "Ibishu Covet Engine Tuning"],
+	],
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_engine", ["hatch_engine"]],
+	],
+	"enginetorque":[
+		["rpm", "torque"]
+		[0, 0],
+		[500, 60],
+		[1000, 73],
+		[2000, 93],
+		[3000, 115],
+		[4000, 132],
+		[4500, 134],
+		[5000, 135],
+		[6000, 134],
+		[7000, 114],
+		[7500, 90],
+	],
+	"engine":{
+		"idleRPM":1000,
+		"shiftDownRPM":3400,
+		"shiftUpRPM":6400,
+		"maxRPM":7500,
+		"inertia":0.08,
+		"friction":16
+		"brakingCoefRPS":0.15
+		"burnEfficiency":0.5
+		"throttleSensitivity":1.2
+		"torqueReactionNodes:":["e1l","e2l","e4r"]
+		},
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--1.5L I4 Engine--
+		 {"selfCollision":false},
+		 {"collision":true}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_engine"},
+		 {"nodeWeight":22},
+		 ["e1r", -0.12, -1.62, 0.30],
+		 ["e1l", -0.12, -1.31, 0.30],
+		 {"nodeWeight":18},
+		 ["e2r", 0.37, -1.62, 0.30],
+		 ["e2l", 0.37, -1.31, 0.30],
+		 {"engineGroup":"hatch_engine_intake"}
+		 {"nodeWeight":22},
+		 ["e3r", -0.12, -1.62, 0.74],
+		 ["e3l", -0.12, -1.31, 0.74],
+		 {"nodeWeight":18},
+		 ["e4r", 0.37, -1.62, 0.74],
+		 ["e4l", 0.37, -1.31, 0.74],
+		 {"engineGroup":""}
+		 {"group":""},
+		 
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+		  		  
+	      {"beamSpring":14001000,"beamDamp":250},
+		  {"beamDeform":2000000,"beamStrength":"FLT_MAX"},
+		  //engine
+		  ["e1r","e1l"],
+		  ["e2r","e2l"],
+		  ["e3r","e3l"],
+		  ["e4r","e4l"],
+		  
+		  ["e1r","e2r"],
+		  ["e1l","e2l"],
+		  ["e3r","e4r"],
+		  ["e3l","e4l"],
+		  
+		  ["e1r","e3r"],
+		  ["e1l","e3l"],
+		  ["e2r","e4r"],
+		  ["e2l","e4l"],
+		  
+		  ["e2r","e3r"],
+		  ["e2l","e3l"],
+		  ["e2r","e3l"],
+		  ["e2l","e3r"],
+		  
+		  ["e1r","e4r"],
+		  ["e1l","e4l"],
+		  ["e1r","e4l"],
+		  ["e1l","e4r"],
+		  
+		  ["e1r","e2l"],
+		  ["e1l","e2r"],
+		  ["e3r","e4l"],
+		  ["e3l","e4r"],
+		  
+		  ["e1r","e3l"],
+		  ["e1l","e3r"],
+		  ["e2r","e4l"],
+		  ["e2l","e4r"],
+		  
+		  
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+"hatch_exhaust": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Exhaust",
+	}
+    "slotType" : "hatch_exhaust",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_exhaust", ["hatch_exhaust","hatch_engine"]],
+		 
+	],
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 {"selfCollision":true}
+		 {"collision":true}
+		 //--I4 Exhaust-
+		 {"frictionCoef":0.7},
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"nodeWeight":3},
+		 {"group":"hatch_exhaust"},
+		 {"selfCollision":false}
+		 ["ex1", 0.02, -1.53, 0.25],
+		 {"selfCollision":false}
+		 {"collision":false}
+		 ["ex2r", -0.11, -0.63, 0.52],
+		 {"selfCollision":true}
+		 {"collision":true}
+		 ["ex2", 0.0, -0.63, 0.13],
+		 {"selfCollision":false}
+		 {"collision":false}
+		 ["ex2l", 0.11, -0.63, 0.52],
+		 {"selfCollision":true}
+		 {"collision":true}
+		 ["ex3", 0.03, 0.65, 0.18],
+		 ["ex4", -0.39, 0.68, 0.17],
+		 ["ex5", -0.39, 1.38, 0.28],
+		 ["ex6", 0.48, 1.43, 0.25],
+		 ["ex7", 0.48, 1.86, 0.20], 
+		 //rigidifier
+		 {"selfCollision":false}
+		 {"collision":false}
+		 ["ex8", -0.15, 0.78, 0.52],
+		 ["ex9", 0.27, 1.38, 0.55],
+		 {"group":""},
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		  //--EXHAUST--
+		  {"beamSpring":1401000,"beamDamp":50},
+		  {"beamDeform":96000,"beamStrength":"FLT_MAX"},
+		  ["ex1","ex2r"],
+		  ["ex1","ex2"],
+		  ["ex1","ex2l"],
+		  ["ex3","ex2r"],
+		  ["ex3","ex2"],
+		  ["ex3","ex2l"],
+		  ["ex3","ex4"],
+		  ["ex4","ex5"],
+		  ["ex5","ex6"],
+		  ["ex6","ex7"],
+		  
+		  ["ex2r","ex2"],
+		  ["ex2l","ex2"],
+		  ["ex2r","ex2l"],
+		  
+		  {"beamDeform":28000,"beamStrength":"FLT_MAX"},
+		  ["ex1","ex3"],
+		  ["ex2r","ex4"],
+		  ["ex2","ex4"],
+		  ["ex2l","ex4"],
+		  ["ex3","ex5"],
+		  ["ex4","ex6"],
+		  ["ex5","ex7"],
+		  ["ex3","ex6"],
+		  ["ex4","ex7"],
+		  
+		  ["ex2r","ex8"],
+		  ["ex2","ex8"],
+		  ["ex2l","ex8"],
+		  ["ex3","ex8"],
+		  ["ex4","ex8"],
+		  ["ex5","ex8"],
+		  ["ex6","ex8"],
+		  ["ex7","ex8"],
+		  
+		  ["ex8","ex9"],
+		  
+		  ["ex3","ex9"],
+		  ["ex4","ex9"],
+		  ["ex5","ex9"],
+		  ["ex6","ex9"],
+		  ["ex7","ex9"],
+		  {"beamSpring":601000,"beamDamp":50},
+		  {"beamDeform":68000,"beamStrength":140000},
+		  {"breakGroup":"hatch_exhaust_d"},
+		  //attach
+		  ["ex1","e1r"],
+		  ["ex1","e2r"],
+		  ["ex1","e3r"],
+		  ["ex1","e4r"],
+		  ["ex1","e1l"],
+		  ["ex1","e2l"],
+		  ["ex1","e3l"],
+		  ["ex1","e4l"],
+		  
+		  ["ex2r","f1r"],
+		  ["ex2","f1r"],
+		  ["ex2","f1l"],
+		  ["ex2l","f1l"],
+		  
+		  {"breakGroup":"hatch_exhaust_a"},
+		  {"beamDeform":16000,"beamStrength":32000},
+		  {"breakGroup":"hatch_exhaust_b"},
+		  ["ex5","rx1r"],
+		  ["ex5","r1r"],
+		  ["ex6","rx1l"],
+		  ["ex9","rx1l"],
+		  ["ex9","r1l"],
+		  ["ex7","rx1l",{"beamSpring":201000,"beamDamp":150}],
+		  {"beamDeform":28000,"beamStrength":64000},
+		  {"breakGroup":"hatch_exhaust_c"},
+		  ["ex3","f3r"],
+		  ["ex4","f3r"],
+		  ["ex8","f4r"],
+		  {"breakGroup":""},
+		  
+		  //support beams
+		  {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":0},
+		  {"beamDeform":40000,"beamStrength":120000},
+		  {"beamSpring":601000,"beamDamp":50},
+		  {"beamLimitSpring":601000,"beamLimitDamp":50},
+		  ["ex4","f4l"],
+		  ["ex4","f3l"],
+		  ["ex3","f4r"],
+		  
+		  ["ex5","r1l"],
+		  ["ex6","r1r"],
+		  ["ex5","rx1l"],
+		  ["ex6","rx1r"],
+		  
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	],
+	"triangles": [
+			["id1:","id2:","id3:"],
+			
+			
+	],
+}
+"hatch_transmission_4A": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet 4-Speed Automatic Transmission",
+	}
+	"engine":{
+		"transmissionType":"automatic",
+		"lowShiftDownRPM":1400,
+		"lowShiftUpRPM":3600,
+		"highShiftDownRPM":3300,
+		"highShiftUpRPM":6000,
+		// -1, 0 (neutral), 1, etc
+		"gears":[-2.9, 0, 2.72, 1.55, 1.05, 0.75]
+		"clutchDuration":0.25
+		"viscousCoupling":3.5
+		"lockingTorqueLimit":150
+		"enableLocking":true
+		},
+    "slotType" : "hatch_transmission",
+	"slots": [
+		["type", "default", "description"]
+		["hatch_differential_F","hatch_differential_F", "Ibishu Covet Front Differential"],
+	],
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_transmission", ["hatch_engine","hatch_transmission"]],
+		 ["hatch_shifterbase_A", ["hatch_body"]],
+		 
+	],	
+	"props": [
+		["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]	
+		//automatic transmission
+		["gear_A"   ,"hatch_shifter_A", "f7r","f7l","f8r", {"x":85, "y":0, "z":0}, {"x":0, "y":0, "z":0}     , {"x":0, "y":0.2, "z":0.01}, 0, 1, 0, 1],
+		["parkingbrake"     ,"hatch_parkingbrake", "f7r","f7l","f8r",  {"x":90, "y":0, "z":0} , {"x":-35, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+	 ],
+	 
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--4 Speed Auto--
+		 {"selfCollision":false},
+		 {"collision":true}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_transmission"},
+		 {"nodeWeight":31},
+		 ["tra1", -0.37, -1.43, 0.39],
+		 {"group":""},
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  //--TRANSMISSION CONE--
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	      {"beamSpring":14001000,"beamDamp":250},
+		  {"beamDeform":2000000,"beamStrength":"FLT_MAX"},
+		  ["tra1","e1r"],
+		  ["tra1","e3r"],
+		  ["tra1","e1l"],
+		  ["tra1","e3l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+	"hubWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			{"propulsed":1},
+	],
+}
+"hatch_differential_F": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Front Differential",
+	}
+    "slotType" : "hatch_differential_F",
+	"differentials": [
+			["wheelName1", 	"wheelName2", "type", "state", "closedTorque", "engineTorqueCoef"],
+			["FL","FR", "open", "open", 0, 1]
+	],
+	"engine":{
+		"differential":4.37,
+		"axleFriction":10
+	},
+}
+"hatch_differential_F_LSD": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Limited Slip Front Differential",
+	}
+    "slotType" : "hatch_differential_F",
+	"differentials": [
+			["wheelName1", 	"wheelName2", "type", "state", "closedTorque", "engineTorqueCoef"],
+			["FL","FR", "lsd", "closed", 90, 1]
+	],
+	"engine":{
+		"differential":4.37,
+		"axleFriction":10
+	},
+}
+"hatch_transmission_5M": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet 5-Speed Manual Transmission",
+	}
+    "slotType" : "hatch_transmission",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"slots": [
+		["type", "default", "description"]
+		["hatch_differential_F","hatch_differential_F", "Ibishu Covet Front Differential"],
+	],
+	"engine":{
+		"transmissionType":"manual",
+		// -1, 0 (neutral), 1, etc
+		"gears":[-3.1, 0, 3.15, 2.12, 1.43, 1.04, 0.84]
+		"clutchDuration":0.12
+		"clutchTorque":200
+		},
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_transmission", ["hatch_engine","hatch_transmission"]],
+		 ["hatch_shifterbase_M", ["hatch_body"]],
+		 
+	],	
+	"props": [
+		["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]	
+		//manual transmission
+		["gear_M"   ,"hatch_shifter_M", "f7r","f7l","f8r", {"x":85, "y":0, "z":0}, {"x":0, "y":0, "z":0}     , {"x":0, "y":0, "z":0.0}, 0, 1, 0, 1],
+		["parkingbrake"     ,"hatch_parkingbrake", "f7r","f7l","f8r",  {"x":90, "y":0, "z":0} , {"x":-35, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+		["clutch"     ,"hatch_clutchpedal", "f7r","f7l","f8r",  {"x":90, "y":0, "z":0} , {"x":-25, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+	 ],
+	 
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--5 Speed Manual--
+		 {"selfCollision":false},
+		 {"collision":true}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_transmission"},
+		 {"nodeWeight":31},
+		 ["tra1", -0.37, -1.43, 0.39],
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //--TRANSMISSION CONE--
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	      {"beamSpring":14001000,"beamDamp":250},
+		  {"beamDeform":2000000,"beamStrength":"FLT_MAX"},
+		  ["tra1","e1r"],
+		  ["tra1","e3r"],
+		  ["tra1","e1l"],
+		  ["tra1","e3l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+	"hubWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			{"propulsed":1},
+	],
+}
+"hatch_transmission_6M_race": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Race 6-Speed Manual Transmission",
+	}
+    "slotType" : "hatch_transmission",
+	"scalenodeWeight":0.62,
+	"scalebeamSpring":0.46,
+	"scalebeamDamp":0.58,
+	"scalebeamDeform":0.39,
+	"scalebeamStrength":0.51,
+	"slots": [
+		["type", "default", "description"]
+		["hatch_differential_F","hatch_differential_F", "Ibishu Covet Front Differential"],
+	],
+	"engine":{
+		"transmissionType":"manual",
+		// -1, 0 (neutral), 1, etc
+		"gears":[-2.95, 0, 2.85, 2.21, 1.64, 1.31, 1.0, 0.82]
+		"clutchDuration":0.10
+		"clutchTorque":250
+		},
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["hatch_transmission", ["hatch_engine","hatch_transmission"]],
+		 ["hatch_shifterbase_M", ["hatch_body"]],
+		 
+	],	
+	"props": [
+		["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]	
+		//manual transmission
+		["gear_M"   ,"hatch_shifter_M", "f7r","f7l","f8r", {"x":85, "y":0, "z":0}, {"x":0, "y":0, "z":0}     , {"x":0, "y":0, "z":0.0}, 0, 1, 0, 1],
+		["parkingbrake"     ,"hatch_parkingbrake", "f7r","f7l","f8r",  {"x":90, "y":0, "z":0} , {"x":-35, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+		["clutch"     ,"hatch_clutchpedal", "f7r","f7l","f8r",  {"x":90, "y":0, "z":0} , {"x":-25, "y":0, "z":0}    , {"x":0.0, "y":0, "z":0}, 0, 1, 0, 1],
+	 ],
+	 
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+		 //--6 Speed Manual--
+		 {"selfCollision":false},
+		 {"collision":true}
+		 {"nodeMaterial":"|NM_METAL"},
+		 {"frictionCoef":0.7},
+		 {"group":"hatch_transmission"},
+		 {"nodeWeight":31},
+		 ["tra1", -0.37, -1.43, 0.39],
+		 {"group":""},
+	],
+	"beams": [
+		  ["id1:", "id2:"],
+		  //--TRANSMISSION CONE--
+		  {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	      {"beamSpring":14001000,"beamDamp":250},
+		  {"beamDeform":2000000,"beamStrength":"FLT_MAX"},
+		  ["tra1","e1r"],
+		  ["tra1","e3r"],
+		  ["tra1","e1l"],
+		  ["tra1","e3l"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+	"hubWheels": [
+            ["name","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			{"propulsed":1},
+	],
+}
+"hatch_enginetuning_sport": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Sport Engine Tuning",
+	}
+    "slotType" : "hatch_enginetuning",
+	"enginetorque":[
+		["rpm", "torque"]
+		[0, 0],
+		[500, 60],
+		[1000, 75],
+		[2000, 97],
+		[3000, 116],
+		[4000, 136],
+		[4500, 141],
+		[5000, 142],
+		[6000, 143],
+		[7000, 122],
+		[7500, 99],
+	],
+	"engine":{
+		"idleRPM":1000,
+		"shiftDownRPM":4000,
+		"shiftUpRPM":7000,
+		"maxRPM":7500,
+	},
+}
+"hatch_turbo_stage2": {
+	"information":{
+		"authors":"gabester",
+		"name":"Ibishu Covet Stage 2 Turbocharger",
+	}
+    "slotType" : "hatch_enginetuning",
+	"flexbodies": [
+		 ["mesh", "[group]:", "nonFlexMaterials"],
+		 //["hatch_turbo", ["hatch_engine"]],
+	],
+	"enginetorque":[
+		["rpm", "torque"]
+		[0, 0],
+		[500, 60],
+		[1000, 80],
+		[2000, 115],
+		[3000, 137],
+		[4000, 189],
+		[5000, 207],
+		[6000, 216],
+		[6500, 218],
+		[7000, 203],
+		[7500, 188],
+	],
+	"engine":{
+		"idleRPM":1000,
+		"shiftDownRPM":4000,
+		"shiftUpRPM":7000,
+		"maxRPM":7500,
+	},
+	"nodes": [
+		 ["id", "posX", "posY", "posZ"],
+	],
+	
+	"beams": [
+		  ["id1:", "id2:"],
+		  {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+}
+}
