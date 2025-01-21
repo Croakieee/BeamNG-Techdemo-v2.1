@@ -1,16 +1,12 @@
 # _BeamNG.ui_
 
-This project is working on the User Interface of the vehicle simulator [BeamNG](http://www.beamng.com).
+This project is working on the User Interface of the vehicle simulator 
 
 ## Project Setup
 
 As BeamNG uses the [Chromium Embedded Framework (CEF)](https://code.google.com/p/chromiumembedded/), it is very simple to develop, test and integrate the UI: simply develop in Chrome or Firefox :)
 
 ## Demo
-
-The links below point to the latest development version, so it might be broken:
-* [Main Menu](http://rawgithub.com/BeamNG/ui/master/mainmenu.html)
-* [Options Menu](http://rawgithub.com/BeamNG/ui/master/options.html)
 
 ## Contributing
 
@@ -40,12 +36,3 @@ If you want to contribute to this project and have not entered the Alpha Testing
 ## License
 
 The BeamNG.ui project is licensed under the MIT license, see file LICENSE.
-
-
-## Contributors
-
-* Thomas Fischer [tdev] <support@beamng.com>
-* Mirco Weigel [theshark] <mweigel@beamng.com>
-* Lefteris Stamatogiannakis [estama]
-* Richard Sixsmith [metalmuncher]
-* Carlos Bergillos [CarlosAir]
